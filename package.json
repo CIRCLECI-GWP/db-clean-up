@@ -1,0 +1,20 @@
+{
+  "name": "db-cleanup-starter",
+  "version": "1.0.0",
+  "description": "Starter template",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "schedule": "node schedule_pipeline",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Oluyemi",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "dotenv": "^14.3.0",
+    "express": "^4.17.2",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.1.8"
+  }
+}
