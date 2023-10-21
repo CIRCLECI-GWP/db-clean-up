@@ -6,7 +6,7 @@ orbs:
 jobs:
   build-and-deploy:
     docker:
-      - image: "cimg/base:stable"
+      - image: cimg/base:stable
     steps:
       - checkout
       - node/install
@@ -17,7 +17,24 @@ jobs:
           name: Deploy app to Heroku
           command: |
             git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git main
+  permission:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run:
+          name: Check access and update permissions for users
+          command: "curl https://<YOUR_HEROKU_APP_NAME>.herokuapp.com/check-access"
+parameters:
+  run-schedule:
+    type: boolean
+    default: false
 workflows:
   deploy:
+    when:
+      not: << pipeline.parameters.run-schedule >>
     jobs:
       - build-and-deploy
+  check_permissions:
+    when: << pipeline.parameters.run-schedule >>
+    jobs:
+      - permission
