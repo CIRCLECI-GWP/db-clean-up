@@ -23,7 +23,7 @@ jobs:
     steps:
       - run:
           name: Check access and update permissions for users
-          command: "curl https://<YOUR_HEROKU_APP_NAME>.herokuapp.com/check-access"
+          command: "curl https://database-clean-up-447fb59ebf03.herokuapp.com/check-access"
 parameters:
   run-schedule:
     type: boolean
