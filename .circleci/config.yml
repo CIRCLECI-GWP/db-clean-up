@@ -12,7 +12,7 @@ jobs:
       - node/install
       - run:
           command: npm install
-          name: Install dependencies
+          name: Install dependencies.
       - run:
           name: Deploy app to Heroku
           command: |
